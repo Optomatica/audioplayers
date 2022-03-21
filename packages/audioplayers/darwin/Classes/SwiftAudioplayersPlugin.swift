@@ -347,7 +347,7 @@ public class SwiftAudioplayersPlugin: NSObject, FlutterPlugin {
         let category = (playingRoute == "earpiece" || recordingActive) ? AVAudioSession.Category.playAndRecord : (
             isNotification ? AVAudioSession.Category.ambient : AVAudioSession.Category.playback
         )
-        let options = isNotification || duckAudio ? AVAudioSession.CategoryOptions.mixWithOthers : []
+        let options = isNotification || duckAudio ? AVAudioSession.CategoryOptions.duckOthers : []
         
         configureAudioSession(category: category, options: options)
         if isNotification {
